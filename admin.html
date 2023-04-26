@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Food Menu</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .img {
+            width: 31vh;
+            height: 31vh;
+        }
+    </style>
+    <script>
+        function change()
+        {
+            prompt("Enter New Password :");
+            alert("Password Changed Successfully");
+        }
+        // function to add food item to table and local storage
+        function addItem() {
+            // get values from input fields
+            var name = document.getElementById("foodname").value;
+            var price = document.getElementById("foodprice").value;
+            var src = document.getElementById("foodimage").value;
+
+            // create new row in table
+            var table = document.getElementById("foodtable");
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            cell1.innerHTML = name;
+            cell2.innerHTML = price;
+            cell3.innerHTML = '<img src="' + src + '">';
+
+            // save data in local storage
+            var data = JSON.parse(localStorage.getItem("foodmenu")) || [];
+            data.push({ "name": name, "price": price, "src": src });
+            localStorage.setItem("foodmenu", JSON.stringify(data));
+
+            // clear input fields
+            document.getElementById("foodname").value = "";
+            document.getElementById("foodprice").value = "";
+            document.getElementById("foodimage").value = "";
+        }
+
+        // function to display saved items from local storage
+        function displayItems() {
+            var table = document.getElementById("foodtable");
+            var data = JSON.parse(localStorage.getItem("foodmenu")) || [];
+            for (var i = 0; i < data.length; i++) {
+                var row = table.insertRow(-1);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                cell1.innerHTML = data[i].name;
+                cell2.innerHTML = data[i].price;
+                // add the width and hieight attributes to the image tag
+                cell3.innerHTML = `<img src=${data[i].src} class="img">`;
+            }
+        }
+    </script>
+</head>
+
+<body onload="displayItems()">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Kitchen Story</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Admin</a>
+                    </li>
+                </ul>
+                <form class="d-flex" onsubmit="searchItems(event)">
+                    <input id="search-input" class="form-control me-2" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button style="color:black;" class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div style="text-align:center;padding: 5px;">
+        <h2 style="background: #45a049;">Food Menu</h2>
+        <span style="float:right">
+               <input type="submit" value="Change Password" onclick="change()" class="btn btn-primary">
+        </span>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Add New Item</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="foodname">Name:</label>
+                        <input type="text" class="form-control" id="foodname" name="foodname">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foodprice">Price:</label>
+                        <input type="number" class="form-control" id="foodprice" name="foodprice">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foodimage">Image Source:</label>
+                        <input type="text" class="form-control" id="foodimage" name="foodimage">
+                    </div>
+
+                    <button type="button" class="btn btn-primary" onclick="addItem()">Add Item</button>
+                    <br>
+                </form>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <table class="table table-striped table-bordered" id="foodtable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="home.html">
+                <button type="button" class="btn btn-primary">Back to Home</button>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Add Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Kitchen Story</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminLogin.html">Admin Login</a>
+                    </li>
+                </ul>
+                <form class="d-flex" onsubmit="searchItems(event)">
+                    <input id="search-input" class="form-control me-2" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button style="color:black;" class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div style="text-align:center;padding: 5px;">
+        <h2 style="background: #45a049;padding:10px;">About Us</h2>
+    </div>
+    <div class="row">
+        <div class="column">
+            <img src="Images/background.jpg" style="width:100%">
+            </p>
+        </div>
+        <div class="column">
+            <p>Kitchen Story is an e-commerce portal that lets people shop basic food items on their website. The website needs to have the following features:
+
+                A search form in the home page to allow entry of the food items to be purchased by the customer.
+                
+                Based on item details entered, it will show available food items with price.
+                
+                Once a person selects an item to purchase, they will be redirected to the list of available items. In the next page, they are shown the complete breakout of the order and details of the payment to be made in the payment gateway. When payment is done, they are shown a confirmation page with details of the order.
+                
+                For the above features to work, there will be an admin backend with the following features:
+                
+                Admin login page where admin can change password after login if he wants to
+                
+                A master list of food items available for purchase
+                
+                A functionality to add or remove food items</p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-lCwwoyA0TICP+GcxDsPH+bYOQdImiX9ZfQbY1A+qnB0veWzpkPRzHJ28XLby0oUs"
+    crossorigin="anonymous"></script>
+</body>
+</html>
